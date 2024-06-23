@@ -11,20 +11,16 @@ const navLinks = [
     path: "#about",
   },
   {
+    title: "Projects",
+    path: "#projects",
+  },
+  {
     title: "Work",
     path: "#work",
   },
   {
     title: "Talks",
     path: "#talks",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
   },
 ];
 
@@ -36,9 +32,10 @@ const Navbar = () => {
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-10 py-2">
         <Link
           href={"/"}
-          className="text-4xl md:text-4xl text-white font-bold"
+          className="text-4xl md:text-4xl font-bold"
         >
-          -mn
+          <span className="text-red-600">-</span>
+          <span className="text-white">mn</span>
         </Link>
 
         <div className="mobile-menu block md:hidden">

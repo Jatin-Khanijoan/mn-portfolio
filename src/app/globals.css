@@ -36,7 +36,7 @@
 
 body {
   background-color: #101415;
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 
 .primaryColor {

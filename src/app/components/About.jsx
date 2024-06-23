@@ -3,8 +3,9 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
+import { motion, AnimatePresence } from "framer-motion";
 
-const TAB_DATA = [
+const tabData = [
   {
     title: "Skills",
     id: "skills",
@@ -14,7 +15,7 @@ const TAB_DATA = [
         <li>Infrastructure as Code (Terraform)</li>
         <li>Programming Languages (Go, Rust, Python, JavaScript)</li>
         <li>Shell Scripting (Bash, Powershell)</li>
-        <li> CI/CD (AWS CodePipeline, AWS CodeBuild, Jenkins)</li>
+        <li>CI/CD (AWS CodePipeline, AWS CodeBuild, Jenkins)</li>
         <li>Presentation Skills</li>
       </ul>
     ),
@@ -44,7 +45,13 @@ const TAB_DATA = [
   },
 ];
 
-const AboutSection = () => {
+const contentVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
+const About = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
@@ -55,18 +62,18 @@ const AboutSection = () => {
   };
 
   return (
-    <section className="text-white" id="about">
+    <section className="text-white lg:mt-8" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        {/* <Image src="" width={500} height={500} /> */}
+        <Image src="/manas-google.jpeg" alt="" width={500} height={500} />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-5xl font-bold accentColor mb-4">- about</h2>
+          <h2 className="text-5xl font-bold accentColor mt-4 mb-4 md:mb-6">- about</h2>
           <p className="text-base lg:text-lg">
-            Experience Cloud Developer with 5 years of experience in creating
-            and deploying scalable and secure cloud applications. 
-            ● Experience in AWS and GCP 
-            ● Specialized in serverless 
-            ● Capable of handling client interactions 
-            ● Expert in DevOps
+            Experience Cloud Developer with 5 years of experience in creating 
+            and deploying scalable and secure cloud applications. <br />
+            ● Experience in AWS and GCP <br />
+            ● Specialized in serverless <br />
+            ● Capable of handling client interactions <br />
+            ● Expert in DevOps <br />
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
@@ -89,7 +96,18 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={tab}
+                variants={contentVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.3 }}
+              >
+                {tabData.find((t) => t.id === tab).content}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -97,4 +115,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;
