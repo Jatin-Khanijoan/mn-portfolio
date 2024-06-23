@@ -17,7 +17,7 @@ const projectsData = [
     {
       id: 2,
       title: "Multi-Cloud Observibility Tool",
-      description: "Kab banaya kya pata",
+      description: "Successfully led a team to efficiently deploy complex applications across clouds, boosting developer productivity and optimizing cloud costs.",
       image: "/manas-pfp.jpg",
       tag: ["All", "Cloud"],
       gitUrl: "https://www.google.com/search?q=Multi-Cloud+Observibility+Tool&sourceid=chrome&ie=UTF-8",
@@ -26,7 +26,7 @@ const projectsData = [
     {
       id: 3,
       title: "Cross Border Payment",
-      description: "No idea",
+      description: "Successfully led a team to efficiently deploy complex applications across clouds, boosting developer productivity and optimizing cloud costs.",
       image: "/manas-pfp.jpg",
       tag: ["All","Full Stack"],
       gitUrl: "/https://www.google.com/search?q=Cross+Border+Payment&sourceid=chrome&ie=UTF-8",
